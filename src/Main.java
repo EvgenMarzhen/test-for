@@ -6,7 +6,8 @@ public class Main {
 //          System.out.print(reverseListNums(9));
 //          System.out.println(chet(19));
 //          System.out.println(pow(3, 2));
-          System.out.println(equalNum(3233333));
+//          System.out.println(equalNum(3233333));
+        square(20);
     }
 
 /*
@@ -101,5 +102,32 @@ public class Main {
             if(x%100 == x%10) equal = true;
         }
         return equal;
+    }
+
+    /*
+    Необходимо реализовать метод таким образом, чтобы он выводил на экран квадрат из символов ‘*’ размером х, у которого х символов в ряд и х символов в высоту.
+    Подсказка: метод System.out.print выводит без перехода на следующую строку, в то время как System.out.println выводит с переходом.
+
+        Пример 1:
+        x=2
+        результат:
+        **
+        **
+
+        Пример 2:
+        x=4
+        результат:
+        ****
+        ****
+        ****
+        ****
+     */
+    public static void square(int x) {
+        for (int a = 0; a < x; a++) {
+            for (int b = 0; b < x; b++) {
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
     }
 }
