@@ -1,9 +1,12 @@
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(listNums(7));
-        System.out.println(reverseListNums(20));
-        System.out.println(chet(19));
-        System.out.println(pow(2, 5));
+//          System.out.print(listNums(9));
+//          System.out.print(reverseListNums(9));
+//          System.out.println(chet(19));
+//          System.out.println(pow(3, 2));
+          System.out.println(equalNum(3233333));
     }
 
 /*
@@ -15,10 +18,11 @@ public class Main {
     результат: “0 1 2 3 4 5”
 */
     public static String listNums(int x) {
-        for (int i = 0; i<=x; i++) {
-            System.out.print(i + " ");
+        String outList = "";
+        for (int i = 0 ;i <= x; i++) {
+            outList += i + " ";
         }
-        return "";
+        return outList;
     }
 
     /*
@@ -31,24 +35,28 @@ public class Main {
      */
     public static String reverseListNums(int x) {
         int max = x;
+        String reverse = "";
         for ( ; max >= 0; max--) {
-            System.out.print(max + " ");
+            reverse += max + " ";
         }
-        return "";
+        return reverse;
     }
 
     /*
-Необходимо реализовать метод таким образом, чтобы он возвращал строку, в которой будут записаны все четные числа от 0 до x (включительно). Подсказа для обеспечения качества кода: инструкцию if использовать не следует.
+Необходимо реализовать метод таким образом, чтобы он возвращал строку, в которой будут записаны все четные числа от 0 до x (включительно).
+Подсказа для обеспечения качества кода: инструкцию if использовать не следует.
 
     Пример:
     x=9
     результат: “0 2 4 6 8”
      */
     public static String chet(int x) {
-        for (int i = 0; i<=x; i+=2 ) {
-            System.out.print(i + " ");
+        int i = 0;
+        String chet = "";
+        for (; i <= x; i += 2) {
+           chet += i + " ";
         }
-        return "";
+        return chet;
     }
 
     /*
@@ -63,13 +71,35 @@ public class Main {
     результат: 32
      */
     public static int pow(int x, int y) {
-        int degree = y;
-        int num = x;
-        int sqrt=0;
-        for (int i=1; i<=degree; i++) {
-            sqrt = i*y;
+        int res = 1;
+        int i;
+        for (i = 1 ; i <= y; i++) {
+            res *= x;
         }
-        System.out.println(sqrt);
-        return degree;
+        return res;
+    }
+
+    /*
+    Необходимо реализовать метод таким образом, чтобы он возвращал true, если все знаки числа одинаковы, и false в ином случае.
+
+    Подсказки:
+
+    int x=123%10; // х будет иметь значение 3
+    int у=123/10; // у будет иметь значение 12
+
+    Пример 1:
+    x=1111
+    результат: true
+
+    Пример 2:
+    x=1211
+    результат: false
+     */
+    public static boolean equalNum(int x) {
+        boolean equal = false;
+        for ( ;x > 0 ; x/=10) {
+            if(x%100 == x%10) equal = true;
+        }
+        return equal;
     }
 }
