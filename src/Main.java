@@ -5,9 +5,10 @@ public class Main {
 //          System.out.print(listNums(9));
 //          System.out.print(reverseListNums(9));
 //          System.out.println(chet(19));
-//          System.out.println(pow(3, 2));
+//          System.out.println(pow(2, 8));
 //          System.out.println(equalNum(3233333));
-        square(20);
+          System.out.println(numLen(1));
+//        square(20);
     }
 
 /*
@@ -102,6 +103,23 @@ public class Main {
             if(x%100 == x%10) equal = true;
         }
         return equal;
+    }
+
+    /*
+    Необходимо реализовать метод таким образом, чтобы он возвращал количество знаков в числе x.
+
+    Подсказка:
+    int у=123/10; // у будет иметь значение 12
+    Пример:
+    x=12567
+    результат: 5
+     */
+    public static int numLen(long x) {
+        int len = 0;
+        for ( ; x > 0 ; x/=10) {
+            len ++;
+        }
+        return len;
     }
 
     /*
