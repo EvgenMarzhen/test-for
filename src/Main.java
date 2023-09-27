@@ -7,8 +7,9 @@ public class Main {
 //          System.out.println(chet(19));
 //          System.out.println(pow(2, 8));
 //          System.out.println(equalNum(3233333));
-          System.out.println(numLen(1));
+//          System.out.println(numLen(1));
 //        square(20);
+        leftTriangle(5);
     }
 
 /*
@@ -143,6 +144,31 @@ public class Main {
     public static void square(int x) {
         for (int a = 0; a < x; a++) {
             for (int b = 0; b < x; b++) {
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+    }
+    /*
+    Необходимо реализовать метод таким образом, чтобы он выводил на экран треугольник из символов ‘*’ у которого х символов в высоту, а количество символов в ряду совпадает с номером строки.
+
+    Пример 1:
+    x=2
+    результат:
+    *
+    **
+
+    Пример 2:
+    x=4
+    результат:
+    *
+    **
+    ***
+    ****
+     */
+    public static void leftTriangle(int x) {
+        for (int a = 0; a < x; a++) {
+            for (int b = 0; a >= b; b++) {
                 System.out.print("*");
             }
             System.out.println("");
