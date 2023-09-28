@@ -6,23 +6,25 @@ public class Main {
 //          System.out.print(reverseListNums(9));
 //          System.out.println(chet(19));
 //          System.out.println(pow(2, 8));
-//          System.out.println(equalNum(3233333));
-//          System.out.println(numLen(1));
+          System.out.println(equalNum(222223222));
+//        System.out.println(numLen(0));
 //        square(20);
-        leftTriangle(5);
+//        leftTriangle(5);
+//        rightTriangle(5);
+//        guessGame(5);
     }
 
-/*
-    Необходимо реализовать метод таким образом, чтобы он возвращал строку, в которой
-    будут записаны все числа от 0 до x (включительно).
+    /*
+        Необходимо реализовать метод таким образом, чтобы он возвращал строку, в которой
+        будут записаны все числа от 0 до x (включительно).
 
-    Пример:
-    x=5
-    результат: “0 1 2 3 4 5”
-*/
+        Пример:
+        x=5
+        результат: “0 1 2 3 4 5”
+    */
     public static String listNums(int x) {
         String outList = "";
-        for (int i = 0 ;i <= x; i++) {
+        for (int i = 0; i <= x; i++) {
             outList += i + " ";
         }
         return outList;
@@ -39,7 +41,7 @@ public class Main {
     public static String reverseListNums(int x) {
         int max = x;
         String reverse = "";
-        for ( ; max >= 0; max--) {
+        for (; max >= 0; max--) {
             reverse += max + " ";
         }
         return reverse;
@@ -57,7 +59,7 @@ public class Main {
         int i = 0;
         String chet = "";
         for (; i <= x; i += 2) {
-           chet += i + " ";
+            chet += i + " ";
         }
         return chet;
     }
@@ -76,7 +78,7 @@ public class Main {
     public static int pow(int x, int y) {
         int res = 1;
         int i;
-        for (i = 1 ; i <= y; i++) {
+        for (i = 1; i <= y; i++) {
             res *= x;
         }
         return res;
@@ -99,9 +101,14 @@ public class Main {
     результат: false
      */
     public static boolean equalNum(int x) {
+        int lastNum = x%10;
         boolean equal = false;
-        for ( ;x > 0 ; x/=10) {
-            if(x%100 == x%10) equal = true;
+        for (; x > 0; x /= 10) {
+            if (lastNum == x%10 == false) {
+                equal = false;
+            }
+            else equal = true;
+            System.out.println(equal);
         }
         return equal;
     }
@@ -116,9 +123,12 @@ public class Main {
     результат: 5
      */
     public static int numLen(long x) {
+        if (x == 0) {
+            return 1;
+        }
         int len = 0;
-        for ( ; x > 0 ; x/=10) {
-            len ++;
+        for (; x > 0; x /= 10) {
+            len++;
         }
         return len;
     }
@@ -149,6 +159,7 @@ public class Main {
             System.out.println("");
         }
     }
+
     /*
     Необходимо реализовать метод таким образом, чтобы он выводил на экран треугольник из символов ‘*’ у которого х символов в высоту, а количество символов в ряду совпадает с номером строки.
 
@@ -172,6 +183,54 @@ public class Main {
                 System.out.print("*");
             }
             System.out.println("");
+        }
+    }
+
+    /*
+Необходимо реализовать метод таким образом, чтобы он выводил на экран треугольник из символов ‘*’ у которого х символов в высоту, а количество символов в ряду совпадает с номером строки, при этом треугольник выровнен по правому краю. Подсказка: перед символами ‘*’ следует выводить необходимое количество пробелов.
+
+Пример 1:
+x=3
+результат:
+    *
+  **
+***
+
+Пример 2:
+x=4
+результат:
+      *
+    **
+  ***
+****
+ */
+    public static void rightTriangle(int x) {
+        for (int a = 0; a < x; a++) {
+            for (int b = 0; a >= b; b++) {
+            }
+            System.out.println("");
+        }
+    }
+
+    /*
+    Данный метод считывает с консоли введенное пользователем число и выводит, угадал ли пользователь то,
+    что было загадано, или нет. Перепишите этот метод таким образом, чтобы он запускался до тех пор,
+    пока пользователь не угадает число. После этого выведите на экран количество попыток,
+    которое потребовалось пользователю, чтобы угадать число.
+
+    Ответом на задание является измененный метод.
+     */
+    public static void guessGame() {
+        int randomNum = 3;
+        for (; ; ) {
+            java.util.Scanner sc = new java.util.Scanner(System.in);
+            System.out.println("What number am I thinking (0 to 9)? :");
+            int x = sc.nextInt();
+            if (x != randomNum) {
+                System.out.println("No, try again");
+            } else {
+                System.out.println("Yes, it`s " + randomNum);
+            }
         }
     }
 }
