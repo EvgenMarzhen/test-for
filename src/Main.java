@@ -6,12 +6,38 @@ public class Main {
 //          System.out.print(reverseListNums(9));
 //          System.out.println(chet(19));
 //          System.out.println(pow(2, 8));
-          System.out.println(equalNum(222223222));
+//          System.out.println(equalNum(312113));
 //        System.out.println(numLen(0));
 //        square(20);
 //        leftTriangle(5);
-//        rightTriangle(5);
-//        guessGame(5);
+//        rightTriangle(4);
+        guessGame();
+    }
+    /*
+Необходимо реализовать метод таким образом, чтобы он возвращал true, если все знаки числа одинаковы, и false в ином случае.
+
+Подсказки:
+
+int x=123%10; // х будет иметь значение 3
+int у=123/10; // у будет иметь значение 12
+
+    Пример 1:
+    x=1111
+    результат: true
+
+    Пример 2:
+    x=1211
+    результат: false
+ */
+    public static boolean equalNum(int x) {
+        int num = x%10;
+        boolean res = false;
+        for (; x > 0; x /= 10) {
+            if (num != x % 10) {
+                return res = false;
+            } else return res = true;
+        }
+        return res;
     }
 
     /*
@@ -84,34 +110,6 @@ public class Main {
         return res;
     }
 
-    /*
-    Необходимо реализовать метод таким образом, чтобы он возвращал true, если все знаки числа одинаковы, и false в ином случае.
-
-    Подсказки:
-
-    int x=123%10; // х будет иметь значение 3
-    int у=123/10; // у будет иметь значение 12
-
-    Пример 1:
-    x=1111
-    результат: true
-
-    Пример 2:
-    x=1211
-    результат: false
-     */
-    public static boolean equalNum(int x) {
-        int lastNum = x%10;
-        boolean equal = false;
-        for (; x > 0; x /= 10) {
-            if (lastNum == x%10 == false) {
-                equal = false;
-            }
-            else equal = true;
-            System.out.println(equal);
-        }
-        return equal;
-    }
 
     /*
     Необходимо реализовать метод таким образом, чтобы он возвращал количество знаков в числе x.
@@ -182,7 +180,7 @@ public class Main {
             for (int b = 0; a >= b; b++) {
                 System.out.print("*");
             }
-            System.out.println("");
+            System.out.println(" ");
         }
     }
 
@@ -205,8 +203,10 @@ x=4
 ****
  */
     public static void rightTriangle(int x) {
-        for (int a = 0; a < x; a++) {
-            for (int b = 0; a >= b; b++) {
+        for ( int i = 0; i <= x; i++) {
+            for ( int j = x; 0 <= j; j--) {
+                if (j > i) System.out.print(" ");
+                else System.out.print("*");
             }
             System.out.println("");
         }
@@ -222,15 +222,18 @@ x=4
      */
     public static void guessGame() {
         int randomNum = 3;
-        for (; ; ) {
+        int i = 0;
+        int x = 0;
+        for ( ; x != randomNum ; i++) {
             java.util.Scanner sc = new java.util.Scanner(System.in);
             System.out.println("What number am I thinking (0 to 9)? :");
-            int x = sc.nextInt();
-            if (x != randomNum) {
-                System.out.println("No, try again");
-            } else {
+            x = sc.nextInt();
+            if (x == randomNum) {
                 System.out.println("Yes, it`s " + randomNum);
+            } else {
+                System.out.println("No, try again");
             }
         }
+        System.out.println("Попыток " + i);
     }
 }
