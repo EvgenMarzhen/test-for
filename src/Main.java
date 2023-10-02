@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
 //          System.out.print(listNums(9));
 //          System.out.print(reverseListNums(9));
-          System.out.println(chet(19));
+//          System.out.println(chet(19));
 //          System.out.println(pow(2, 8));
-//          System.out.println(equalNum(312113));
+          System.out.println(equalNum(3133));
 //        System.out.println(numLen(0));
 //        square(20);
 //        leftTriangle(5);
@@ -30,14 +30,14 @@ int у=123/10; // у будет иметь значение 12
     результат: false
  */
     public static boolean equalNum(int x) {
+        boolean eq = true;
         int num = x%10;
-        boolean res = false;
         for (; x > 0; x /= 10) {
             if (num != x % 10) {
-                return res = false;
-            } else return res = true;
+                return false;
+            }
         }
-        return res;
+        return eq;
     }
 
     /*
