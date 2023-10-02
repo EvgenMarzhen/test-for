@@ -4,14 +4,14 @@ public class Main {
     public static void main(String[] args) {
 //          System.out.print(listNums(9));
 //          System.out.print(reverseListNums(9));
-//          System.out.println(chet(19));
+          System.out.println(chet(19));
 //          System.out.println(pow(2, 8));
 //          System.out.println(equalNum(312113));
 //        System.out.println(numLen(0));
 //        square(20);
 //        leftTriangle(5);
 //        rightTriangle(4);
-        guessGame();
+//        guessGame();
     }
     /*
 Необходимо реализовать метод таким образом, чтобы он возвращал true, если все знаки числа одинаковы, и false в ином случае.
@@ -51,7 +51,12 @@ int у=123/10; // у будет иметь значение 12
     public static String listNums(int x) {
         String outList = "";
         for (int i = 0; i <= x; i++) {
-            outList += i + " ";
+            if (i < x) {
+                outList += i + " ";
+            }
+            if (i == x) {
+                outList += i;
+            }
         }
         return outList;
     }
@@ -68,7 +73,10 @@ int у=123/10; // у будет иметь значение 12
         int max = x;
         String reverse = "";
         for (; max >= 0; max--) {
-            reverse += max + " ";
+            if (max > 0)
+                reverse += max + " ";
+            if (max == 0)
+                reverse += max;
         }
         return reverse;
     }
@@ -84,8 +92,11 @@ int у=123/10; // у будет иметь значение 12
     public static String chet(int x) {
         int i = 0;
         String chet = "";
-        for (; i <= x; i += 2) {
-            chet += i + " ";
+        for (; i == 0; i += 2) {
+                chet += i;
+        }
+        for (; i <= x && i > 0; i += 2) {
+            chet += " " + i;
         }
         return chet;
     }
@@ -215,8 +226,8 @@ x=4
     /*
     Данный метод считывает с консоли введенное пользователем число и выводит, угадал ли пользователь то,
     что было загадано, или нет. Перепишите этот метод таким образом, чтобы он запускался до тех пор,
-    пока пользователь не угадает число. После этого выведите на экран количество попыток,
-    которое потребовалось пользователю, чтобы угадать число.
+    пока пользователь не угадает число. После этого выведите нагадать число. экран количество попыток,
+    которое потребовалось пользователю, чтобы у
 
     Ответом на задание является измененный метод.
      */
